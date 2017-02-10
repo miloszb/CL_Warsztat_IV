@@ -34,4 +34,9 @@ class Connection
     {
         return $this->mysqli->insert_id;
     }
+    public function close()
+    {
+        $this->mysqli->close();
+        $this->mysqli = null;
+    }
 }

@@ -25,6 +25,7 @@ class User
             $result = $db->query($sql);
         } catch (Exception $ex) {
             echo $ex->getMessage();
+            $db->close();
         }
         $row = $result->fetch_assoc();
         if($row['id']){
@@ -35,6 +36,7 @@ class User
             return $this;
         }
         return false;
+        $db->close();
     }
     public function save()
     {
@@ -53,6 +55,7 @@ class User
                 $db->query($sql);
             } catch (Exception $ex) {
                 $this->errors[] = $ex->getMessage();
+                $db->close();
             }
             $this->id = $db->getInsertId();
             return $this->get($this->id);
@@ -72,9 +75,11 @@ class User
                 $db->query($sql);
             } catch (Exception $ex) {
                 echo $ex->getMessage();
+                $db->close();
             }
             return $this;
         }
+        $db->close();
     }
     public static function login($email, $password)
     {
@@ -87,6 +92,7 @@ class User
             $result = $db->query($sql);
         } catch (Exception $ex) {
             $this->errors[] = $ex->getMessage();
+            $db->close();
         }
         $row = $result->fetch_assoc();
         $id = $row['id'];
@@ -97,6 +103,7 @@ class User
         } else {
             return false;
         }
+        $db->close();
     }
     public function getId()
     {
