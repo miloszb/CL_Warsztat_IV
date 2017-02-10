@@ -7,7 +7,7 @@ class Connection
 
     public function __construct()
     {
-        require_once 'config.php';
+        require __DIR__ . '../config/config.php';
 
         $this->mysqli = new mysqli($dbServer, $dbUser, $dbPassword, $dbName);
 
