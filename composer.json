@@ -1,6 +1,7 @@
 {
+    "minimum-stability": "dev",
     "require": {
-        "phpunit/phpunit": "5.5.*"
+        "phpunit/phpunit": "*"
     },
     "autoload": {
         "psr-0" : {

@@ -7,15 +7,13 @@ class Connection
 
     public function __construct()
     {
-        require_once 'config.php';
-
+        require __DIR__ . '/../config/config.php';
         $this->mysqli = new mysqli($dbServer, $dbUser, $dbPassword, $dbName);
 
         if($this->mysqli->connect_error)
         {
-            die('Databse connection error: '.$this->mysqli->connect_error);
-        } else
-        {
+            throw new Exception('Database connection error: ' . $this->mysqli->connect_error);
+        } else {
             $this->mysqli->set_charset("utf8");
             return true;
         }
@@ -27,9 +25,13 @@ class Connection
 
         if($result == false)
         {
-            die('Query error: '.$this->mysqli->error);
+            throw new Exception('Query error: ' . $this->mysqli->error);
         } else {
             return $result;
         }
+    }
+    public function getInsertId()
+    {
+        return $this->mysqli->insert_id;
     }
 }
