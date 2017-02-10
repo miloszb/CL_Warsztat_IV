@@ -1,5 +1,5 @@
 /nbproject/
 /vendor/
 composer.phar
-src/config.php
+config/config.php
 .idea
