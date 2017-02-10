@@ -1,7 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: piotr
- * Date: 10.02.17
- * Time: 15:01
- */
+
+$dbServer = 'localhost';
+$dbUser = 'root';
+$dbPassword = 'coderslab';
+$dbName = 'cl_shop_db';
