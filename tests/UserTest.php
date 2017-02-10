@@ -18,4 +18,11 @@ class UserTest extends TestCase
         $tstU->save();
         $this->assertTrue($tstU->getId() != -1);
     }
+    public function testLogin()
+    {
+        $tstU = User::login('jwozek@org.org', 'wrongpassword');
+        $this->assertFalse($tstU);
+        $tstU = User::login('jwozek@org.org', 'bumbum123');
+        $this->assertEquals('Józek', $tstU->getName());
+    }
 }

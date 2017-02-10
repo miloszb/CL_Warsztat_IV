@@ -6,6 +6,7 @@ class User
     protected $surname;
     protected $email;
     protected $password;
+    protected $errors;
     
     public function __construct($name='', $surname='', $email='', $password='')
     {
@@ -14,16 +15,17 @@ class User
         $this->setSurname($surname);
         $this->setEmail($email);
         $this->setPassword($password);
+        $errors = [];
     }
     public function get($id)
     {
         $db = new Connection();
         $sql = 'SELECT * FROM user WHERE id=' . $id;
-            try {
-                $result = $db->query($sql);
-            } catch (Exception $ex) {
-                echo $ex->getMessage();
-            }
+        try {
+            $result = $db->query($sql);
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+        }
         $row = $result->fetch_assoc();
         if($row['id']){
             $this->id = ($row['id']);
@@ -50,7 +52,7 @@ class User
             try {
                 $db->query($sql);
             } catch (Exception $ex) {
-                echo $ex->getMessage();
+                $this->errors[] = $ex->getMessage();
             }
             $this->id = $db->getInsertId();
             return $this->get($this->id);
@@ -81,6 +83,20 @@ class User
                 'SELECT id, password FROM user WHERE email="%s"',
                 $email
         );
+        try {
+            $result = $db->query($sql);
+        } catch (Exception $ex) {
+            $this->errors[] = $ex->getMessage();
+        }
+        $row = $result->fetch_assoc();
+        $id = $row['id'];
+        $hashPass = $row['password'];
+        if (password_verify($password, $hashPass)) {
+            $loggedUser = new User();
+            return $loggedUser->get($id);
+        } else {
+            return false;
+        }
     }
     public function getId()
     {
@@ -121,5 +137,9 @@ class User
     public function getPassword()
     {
         return $this->password;
+    }
+    public function getErrors()
+    {
+        return $this->errors;
     }
 }
