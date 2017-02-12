@@ -26,7 +26,7 @@
 
     <testsuites>
         <testsuite name="Piotr tests">
-            <directory suffix="Test.php" phpVersion="7.0.8" phpVersionOperator=">=">./tests/</directory>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
 
