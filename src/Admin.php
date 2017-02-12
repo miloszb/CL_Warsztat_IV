@@ -56,6 +56,34 @@ class Admin
         $this->password = password_hash($password, PASSWORD_BCRYPT);
     }
 
+    public function saveToDB(Connection $connection)
+    {
+        if($this->id == -1) {
+            $sql = "INSERT INTO admin (id, name, email, password)
+                    VALUES ('$this->id', '$this->name', '$this->email', '$this->password')";
+            $result = $connection->query($sql);
 
+            if($result == true) {
+                $this->id = $connection->insert_id;
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            $sql = "UPDATE product 
+                    SET id='$this->id',
+                        name='$this->name',
+                        email='$this->email',
+                        password='$this->password'
+                    WHERE id=$this->id";
+            $result = $connection->query($sql);
+
+            if($result == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 
 }
