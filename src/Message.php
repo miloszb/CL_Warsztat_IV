@@ -23,6 +23,51 @@ class Message
         $this->creationDate = '';
     }
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(int $userId)
+    {
+        $this->userId = $userId;
+    }
+
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    public function setText(string $text)
+    {
+        $this->text = $text;
+    }
+
+    public function getReceiver()
+    {
+        return $this->receiver;
+    }
+
+    public function setReceiver(string $receiver)
+    {
+        $this->receiver = $receiver;
+    }
+
+    public function getCreationDate()
+    {
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(string $creationDate)
+    {
+        $this->creationDate = $creationDate;
+    }
+
 
 
 }
