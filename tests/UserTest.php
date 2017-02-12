@@ -1,41 +1,57 @@
 <?php
-use PHPUnit\Framework\TestCase;
+//use PHPUnit\Framework\TestCase;
+//use PHPUnit\Extensions\Database\TestCase;
 
-class UserTest extends TestCase
+class UserTest extends PHPUnit_Extensions_Database_TestCase
 {
-    private $testUser;
     
-    protected function setUp()
+//    protected function setUp()
+//    {
+//        parent::setUp();
+//        $this->testUser = new User('Józek', 'Wózek', 'jwozek@org.org', 'bumbum123');
+//    }
+    public function getConnection()
     {
-        parent::setUp();
-        $this->testUser = new User('Józek', 'Wózek', 'jwozek@org.org', 'bumbum123');
+        $pdo = new PDO(
+                $GLOBALS['DB_DSN'],
+                $GLOBALS['DB_USER'],
+                $GLOBALS['DB_PASSWD']
+        );
+        return $this->createDefaultDBConnection($pdo, $GLOBALS['DB_DBNAME']);
     }
+    public function getDataSet()
+    {
+        return $this->createFlatXMLDataSet(__DIR__ . '/../user_flat.xml');
+    }
+    
     public function testConstruct()
     {
-        $this->assertInstanceOf(User::class, $this->testUser);    
-        $this->assertEquals('Józek', $this->testUser->getName());
-        $this->assertEquals('Wózek', $this->testUser->getSurname());
-        $this->assertEquals('jwozek@org.org', $this->testUser->getEmail());
-        $this->assertEquals('bumbum123', $this->testUser->getPassword());
-    }
-    public function testAddToDb()
-    {
-        $this->testUser->save();
-        $this->assertTrue($this->testUser->getId() > 0);
+        $testUser = new User();
+        $testUser->get(1); 
+        $this->assertInstanceOf(User::class, $testUser);    
+        $this->assertEquals('Jozek', $testUser->getName());
+        $this->assertEquals('Wozek', $testUser->getSurname());
+        $this->assertEquals('jwozek@org.org', $testUser->getEmail());
     }
     public function testLogin()
     {
-        $this->testUser->save();
         $loggedUserBad = User::login('jwozek@org.org', 'wrongpassword');
         $this->assertFalse($loggedUserBad);
         $loggedUserGood = User::login('jwozek@org.org', 'bumbum123');
-        $this->assertEquals('Józek', $loggedUserGood->getName());
+        $this->assertEquals('Jozek', $loggedUserGood->getName());
     }
-    protected function tearDown()
+    public function testAddToDb()
     {
-        $db = new Connection();
-        $sql = 'TRUNCATE TABLE user';
-        $db->query($sql);
-        parent::tearDown();
+        
+        $testUser = new User('Koka', 'Kola', 'coke@coke.com', 'kokakola789');
+        $testUser->save();
+        $this->assertTrue($testUser->getId() == 3);
     }
+//    protected function tearDown()
+//    {
+//        $db = new Connection();
+//        $sql = 'TRUNCATE TABLE user';
+//        $db->query($sql);
+//        parent::tearDown();
+//    }
 }

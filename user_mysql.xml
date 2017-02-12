@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="cl_shop_db">
+	<table_structure name="user">
+		<field Field="id" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="name" Type="varchar(100)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="surname" Type="varchar(100)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="email" Type="varchar(100)" Null="NO" Key="UNI" Extra="" Comment="" />
+		<field Field="password" Type="varchar(60)" Null="NO" Key="" Extra="" Comment="" />
+		<key Table="user" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="2" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="user" Non_unique="0" Key_name="email" Seq_in_index="1" Column_name="email" Collation="A" Cardinality="2" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="user" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="2" Avg_row_length="8192" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="3" Create_time="2017-02-10 16:24:20" Update_time="2017-02-12 14:33:06" Collation="utf8_general_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="user">
+	<row>
+		<field name="id">1</field>
+		<field name="name">Józek</field>
+		<field name="surname">Wózek</field>
+		<field name="email">jwozek@org.org</field>
+		<field name="password">$2y$10$gEMaDk/6hPQVagpW6z3J2uJo/Du962g99ZMg/IqewWRQnNQwUQcxG</field>
+	</row>
+	<row>
+		<field name="id">2</field>
+		<field name="name">Ania</field>
+		<field name="surname">Bania</field>
+		<field name="email">abania@com.com</field>
+		<field name="password">$2y$10$q/ztGDGasZdKgbWU1u0A1evIAbpg50VpFPsB6Oxb5VmGrjYk2Bd5q</field>
+	</row>
+	</table_data>
+</database>
+</mysqldump>

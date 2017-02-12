@@ -36,9 +36,9 @@
         constants, and global variables.
         It can also be used to prepend the include_path.-->
     <php>
-        <var name="DB_DNS" value="mysql:dbname=cl_shop_db;host=localhost" />
+        <var name="DB_DSN" value="mysql:dbname=cl_shop_db;host=localhost" />
         <var name="DB_USER" value="root" />
-        <var name="DB_PASSWORD" value="coderslab" />
+        <var name="DB_PASSWD" value="coderslab" />
         <var name="DB_DBNAME" value="cl_shop_db" />
     </php>
 

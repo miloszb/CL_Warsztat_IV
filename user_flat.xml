@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <user
+        id="1"
+        name="Jozek"
+        surname="Wozek"
+        email="jwozek@org.org"
+        password="$2y$10$gEMaDk/6hPQVagpW6z3J2uJo/Du962g99ZMg/IqewWRQnNQwUQcxG" />
+    <user
+        id="2"
+        name="Ania"
+        surname="Bania"
+        email="abania@com.com"
+        password="$2y$10$q/ztGDGasZdKgbWU1u0A1evIAbpg50VpFPsB6Oxb5VmGrjYk2Bd5q" />
+</dataset>
