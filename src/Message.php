@@ -68,6 +68,35 @@ class Message
         $this->creationDate = $creationDate;
     }
 
+    public function saveToDB(Connection $connection)
+    {
+        if($this->id == -1) {
+            $sql = "INSERT INTO product (id, userId, text, receiver, creationDate)
+                    VALUES ('$this->id', '$this->userId', '$this->text', '$this->receiver', '$this->creationDate')";
+            $result = $connection->query($sql);
 
+            if($result == true) {
+                $this->id = $connection->insert_id;
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            $sql = "UPDATE product 
+                    SET id='$this->id',
+                        userId='$this->userId',
+                        text='$this->text',
+                        receiver='$this->receiver',
+                        creationDate='$this->creationDate'
+                    WHERE id=$this->id";
+            $result = $connection->query($sql);
+
+            if($result == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 
 }
