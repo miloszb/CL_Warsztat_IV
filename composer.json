@@ -5,7 +5,12 @@
   "license": "MIT",
   "minimum-stability": "dev",
   "require": {
-    "phpunit/phpunit": "*"
+    "phpunit/phpunit": "*",
+    "phpunit/dbunit": "*",
+    "phpunit/php-invoker": "*",
+    "php-kit/ext-pdo": "*",
+    "bhavik/pdo-mysql": "*"
+
   },
   "autoload": {
     "psr-0" : {

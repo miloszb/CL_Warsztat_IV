@@ -44,5 +44,13 @@ class ProductTest extends TestCase
         $this->assertEquals('Opis', $name);
     }
 
+    function testSetStock()
+    {
+        $this->product->setStock(20);
+        $result = $this->product->getStock();
+        $this->assertEquals(20, $result);
+    }
+
+
 
 }
