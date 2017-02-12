@@ -4,35 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d96a5804ee58264a596050d9919eb60f",
+    "content-hash": "8d53b5c809508f76bcd0cbe02e0d9721",
     "packages": [
-        {
-            "name": "bhavik/pdo-mysql",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bhavitk/PDOMySQL.git",
-                "reference": "0c376fb680c65233633f8e918f36bfe0d79ca5ec"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bhavitk/PDOMySQL/zipball/0c376fb680c65233633f8e918f36bfe0d79ca5ec",
-                "reference": "0c376fb680c65233633f8e918f36bfe0d79ca5ec",
-                "shasum": ""
-            },
-            "type": "package",
-            "autoload": {
-                "files": [
-                    "PDOMySQL.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "PHP PDO Library",
-            "time": "2016-07-13 09:17:56"
-        },
         {
             "name": "doctrine/instantiator",
             "version": "dev-master",
@@ -128,48 +101,6 @@
                 "object graph"
             ],
             "time": "2017-01-26T22:05:40+00:00"
-        },
-        {
-            "name": "php-kit/ext-pdo",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-kit/ext-pdo.git",
-                "reference": "8d22719c447ab44040ab9b6b23f1dbbc59c311b1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-kit/ext-pdo/zipball/8d22719c447ab44040ab9b6b23f1dbbc59c311b1",
-                "reference": "8d22719c447ab44040ab9b6b23f1dbbc59c311b1",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "PhpKit\\ExtPDO\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Cláudio Silva",
-                    "email": "claudio.silva@impactwave.com"
-                },
-                {
-                    "name": "Impactwave",
-                    "email": "impactwave@impactwave.com",
-                    "homepage": "http://impactwave.com"
-                }
-            ],
-            "description": "An extension to the standard PHP PDO API",
-            "homepage": "https://github.com/php-kit/ext-pdo",
-            "time": "2016-11-30 15:46:48"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -540,52 +471,6 @@
                 "iterator"
             ],
             "time": "2016-10-03 07:40:28"
-        },
-        {
-            "name": "phpunit/php-invoker",
-            "version": "1.1.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/php-invoker.git",
-                "reference": "86074bf0fc2caf02ec8819a93f65a37cd0b44c8e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-invoker/zipball/86074bf0fc2caf02ec8819a93f65a37cd0b44c8e",
-                "reference": "86074bf0fc2caf02ec8819a93f65a37cd0b44c8e",
-                "shasum": ""
-            },
-            "require": {
-                "ext-pcntl": "*",
-                "php": ">=5.3.3",
-                "phpunit/php-timer": ">=1.0.6"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
-                }
-            ],
-            "description": "Utility class for invoking callables with a timeout.",
-            "homepage": "https://github.com/sebastianbergmann/php-invoker/",
-            "keywords": [
-                "process"
-            ],
-            "time": "2015-06-21 13:32:55"
         },
         {
             "name": "phpunit/php-text-template",

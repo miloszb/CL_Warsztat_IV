@@ -6,11 +6,7 @@
   "minimum-stability": "dev",
   "require": {
     "phpunit/phpunit": "*",
-    "phpunit/dbunit": "*",
-    "phpunit/php-invoker": "*",
-    "php-kit/ext-pdo": "*",
-    "bhavik/pdo-mysql": "*"
-
+    "phpunit/dbunit": "*"
   },
   "autoload": {
     "psr-0" : {
